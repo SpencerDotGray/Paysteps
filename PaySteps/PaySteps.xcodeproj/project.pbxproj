@@ -15,6 +15,8 @@
 		48810346254B6CCD00FF91E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48810344254B6CCD00FF91E2 /* LaunchScreen.storyboard */; };
 		48810351254B6CCE00FF91E2 /* PayStepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810350254B6CCE00FF91E2 /* PayStepsTests.swift */; };
 		4881035C254B6CCE00FF91E2 /* PayStepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881035B254B6CCE00FF91E2 /* PayStepsUITests.swift */; };
+		4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881036C254B6E0900FF91E2 /* HomeView.swift */; };
+		48810372254B769500FF91E2 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810371254B769500FF91E2 /* ActivityRing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		48810357254B6CCE00FF91E2 /* PayStepsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayStepsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4881035B254B6CCE00FF91E2 /* PayStepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayStepsUITests.swift; sourceTree = "<group>"; };
 		4881035D254B6CCE00FF91E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4881036C254B6E0900FF91E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		48810371254B769500FF91E2 /* ActivityRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				48810344254B6CCD00FF91E2 /* LaunchScreen.storyboard */,
 				48810347254B6CCD00FF91E2 /* Info.plist */,
 				48810341254B6CCD00FF91E2 /* Preview Content */,
+				4881036C254B6E0900FF91E2 /* HomeView.swift */,
+				48810371254B769500FF91E2 /* ActivityRing.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
+				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
 				4881033C254B6CCD00FF91E2 /* SceneDelegate.swift in Sources */,
 				4881033E254B6CCD00FF91E2 /* ContentView.swift in Sources */,
 			);
