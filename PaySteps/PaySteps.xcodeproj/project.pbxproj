@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		4881035C254B6CCE00FF91E2 /* PayStepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881035B254B6CCE00FF91E2 /* PayStepsUITests.swift */; };
 		4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881036C254B6E0900FF91E2 /* HomeView.swift */; };
 		48810372254B769500FF91E2 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810371254B769500FF91E2 /* ActivityRing.swift */; };
+		488B97612550389C008A2058 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B97602550389C008A2058 /* LogView.swift */; };
+		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		4881035D254B6CCE00FF91E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4881036C254B6E0900FF91E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		48810371254B769500FF91E2 /* ActivityRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRing.swift; sourceTree = "<group>"; };
+		488B97602550389C008A2058 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488B976725503A17008A2058 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +116,7 @@
 				48810341254B6CCD00FF91E2 /* Preview Content */,
 				4881036C254B6E0900FF91E2 /* HomeView.swift */,
 				48810371254B769500FF91E2 /* ActivityRing.swift */,
+				488B97602550389C008A2058 /* LogView.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -158,6 +163,9 @@
 			dependencies = (
 			);
 			name = PaySteps;
+			packageProductDependencies = (
+				488B976625503A17008A2058 /* SwiftUICharts */,
+			);
 			productName = PaySteps;
 			productReference = 48810336254B6CCD00FF91E2 /* PaySteps.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 4881032D254B6CCD00FF91E2;
+			packageReferences = (
+				488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 48810337254B6CCD00FF91E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
+				488B97612550389C008A2058 /* LogView.swift in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
 				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
 				4881033C254B6CCD00FF91E2 /* SceneDelegate.swift in Sources */,
@@ -599,6 +611,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		488B976625503A17008A2058 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4881032E254B6CCD00FF91E2 /* Project object */;
 }

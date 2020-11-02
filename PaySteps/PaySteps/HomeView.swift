@@ -13,6 +13,9 @@ struct HomeView: View {
     @State var stepGoal: Int = 900
     @State var stepProgress: CGFloat = 0.65
     @State var stepProgressChange: CGFloat = 0.0
+    @State var caloriesBurned: Float = 0.0
+    @State var distanceTraveled: Float = 0.0
+    @State var minutesMoving: Float = 0.0
     
     let timer = Timer.publish(every: 0.025, on: .main, in: .common).autoconnect()
 
@@ -46,11 +49,13 @@ struct HomeView: View {
                         }
                 }
                 Spacer()
-                    .frame(height: 230)
+                    .frame(height: 100)
+                Text("Calories: \(caloriesBurned)")
+                Text("Mileage: \(distanceTraveled)")
+                Text("Time Moving: \(minutesMoving)")
+                Spacer()
+                    .frame(height: 70)
             }
-        }.onAppear {
-            
-            //self.stepProgressChange = CGFloat.random(in: 0.0...1.0)
         }
     }
 }

@@ -14,9 +14,9 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: self.$sel) {
-            Text("Logs").tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
+            LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
             HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
-            Text("Crypto").tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
+            Text("Coming Soon").tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
         }
     }
 }
