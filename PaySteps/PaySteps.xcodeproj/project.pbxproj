@@ -19,6 +19,7 @@
 		48810372254B769500FF91E2 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810371254B769500FF91E2 /* ActivityRing.swift */; };
 		488B97612550389C008A2058 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B97602550389C008A2058 /* LogView.swift */; };
 		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
+		489196DF2553171700CEE741 /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489196DE2553171700CEE741 /* Pedometer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		4881036C254B6E0900FF91E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		48810371254B769500FF91E2 /* ActivityRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRing.swift; sourceTree = "<group>"; };
 		488B97602550389C008A2058 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		489196DE2553171700CEE741 /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				4881036C254B6E0900FF91E2 /* HomeView.swift */,
 				48810371254B769500FF91E2 /* ActivityRing.swift */,
 				488B97602550389C008A2058 /* LogView.swift */,
+				489196DE2553171700CEE741 /* Pedometer.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				488B97612550389C008A2058 /* LogView.swift in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
 				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
+				489196DF2553171700CEE741 /* Pedometer.swift in Sources */,
 				4881033C254B6CCD00FF91E2 /* SceneDelegate.swift in Sources */,
 				4881033E254B6CCD00FF91E2 /* ContentView.swift in Sources */,
 			);

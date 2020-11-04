@@ -16,6 +16,7 @@ struct HomeView: View {
     @State var caloriesBurned: Float = 0.0
     @State var distanceTraveled: Float = 0.0
     @State var minutesMoving: Float = 0.0
+    @State var pedometer: Pedometer = Pedometer()
     
     let timer = Timer.publish(every: 0.025, on: .main, in: .common).autoconnect()
 
@@ -29,7 +30,7 @@ struct HomeView: View {
             VStack {
                 ZStack {
                     VStack {
-                        Text("\(stepCount)")
+                        Text("\(pedometer.getSteps())")
                             .font(.largeTitle)
                             .fontWeight(.heavy)
                             .multilineTextAlignment(.center)
