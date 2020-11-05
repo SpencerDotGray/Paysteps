@@ -11,7 +11,7 @@ import CoreMotion
 struct ContentView: View {
     
     @State var sel: Int = 1
-    @State var pedo: Pedometer = Pedometer()
+    @State var pedo: Pedometer = Pedometer.sharedInstance
     
     let timer = Timer.publish(every: 15.0, on: .main, in: .common).autoconnect()
     
@@ -21,8 +21,6 @@ struct ContentView: View {
             LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
             HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
             Text("Coming Soon").tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
-        }.onReceive(timer) { _ in
-            pedo.update()
         }
     }
 }

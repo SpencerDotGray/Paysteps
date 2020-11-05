@@ -52,6 +52,8 @@ class Pedometer {
         
             inUpdate.toggle()
             
+            print("\(steps ?? -1)")
+            
             OperationQueue.main.addOperation{
                 self.pedometer.startUpdates(from: self.startDate ?? Date()){ (data, error) in
                     guard let data = data, error == nil else { return }
