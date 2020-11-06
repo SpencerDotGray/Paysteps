@@ -21,7 +21,6 @@
 		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
 		489196DF2553171700CEE741 /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489196DE2553171700CEE741 /* Pedometer.swift */; };
 		48EAAB9925538ADC005785FA /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAAB9825538ADC005785FA /* Notifications.swift */; };
-		48EAABAB25538B78005785FA /* PaySteps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48EAABA925538B78005785FA /* PaySteps.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +60,6 @@
 		488B97602550389C008A2058 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		489196DE2553171700CEE741 /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
 		48EAAB9825538ADC005785FA /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		48EAABAA25538B78005785FA /* PaySteps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaySteps.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 		48810338254B6CCD00FF91E2 /* PaySteps */ = {
 			isa = PBXGroup;
 			children = (
-				48EAABA925538B78005785FA /* PaySteps.xcdatamodeld */,
 				48810339254B6CCD00FF91E2 /* AppDelegate.swift */,
 				4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */,
 				4881033D254B6CCD00FF91E2 /* ContentView.swift */,
@@ -295,7 +292,6 @@
 				48EAAB9925538ADC005785FA /* Notifications.swift in Sources */,
 				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
 				488B97612550389C008A2058 /* LogView.swift in Sources */,
-				48EAABAB25538B78005785FA /* PaySteps.xcdatamodeld in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
 				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
 				489196DF2553171700CEE741 /* Pedometer.swift in Sources */,
@@ -642,20 +638,6 @@
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		48EAABA925538B78005785FA /* PaySteps.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				48EAABAA25538B78005785FA /* PaySteps.xcdatamodel */,
-			);
-			currentVersion = 48EAABAA25538B78005785FA /* PaySteps.xcdatamodel */;
-			name = PaySteps.xcdatamodeld;
-			path = ../../../../../../Desktop/PaySteps.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4881032E254B6CCD00FF91E2 /* Project object */;
 }

@@ -51,8 +51,10 @@ struct DetailedView: View {
 
 struct LogView: View {
     
-    @State var stepsPerHour: [Double] = [0, 0, 0, 0, 0, 0, 90, 85, 250, 20, 20, 20, 150, 110, 20, 40, 25, 0, 0, 75, 60, 90, 0, 0]
-    var tempData: ChartData = ChartData(values: [("12:00 AM", 0), ("1:00 AM", 200), ("2:00 AM", 145)])
+    @State var stepsPerHour: [Double] = Pedometer.sharedInstance.getHourlySteps()
+    @State var distancePerHour: [Double] = Pedometer.sharedInstance.getHourlyDistance()
+    @State var blankData: [Double] = [0.0, 1.0, 6.0, 2.0, 5.0, 1.0, 2.0, 6.0]
+    @State var pedometer: Pedometer = Pedometer.sharedInstance
     @State var displayGridView: Bool = true
     @State var inDetailedView: Bool = false
     
@@ -73,17 +75,17 @@ struct LogView: View {
                                 NavigationLink(destination: DetailedView(title: "Steps", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
                                     LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.small, dropShadow: false)
                                 }
-                                NavigationLink(destination: DetailedView(title: "Calories", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: stepsPerHour, title: "Calories", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: blankData, title: "Calories", form: ChartForm.small, dropShadow: false)
                                 }
                             }
                             
                             HStack {
-                                NavigationLink(destination: DetailedView(title: "Distance", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: stepsPerHour, title: "Distance", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Distance", lineData: distancePerHour, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: distancePerHour, title: "Distance", form: ChartForm.small, dropShadow: false)
                                 }
-                                NavigationLink(destination: DetailedView(title: "Crypto", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: stepsPerHour, title: "Crypto", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Crypto", lineData: blankData, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: blankData, title: "Crypto", form: ChartForm.small, dropShadow: false)
                                 }
                             }
                         }
@@ -96,14 +98,14 @@ struct LogView: View {
                         NavigationLink(destination: DetailedView(title: "Steps", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
                             LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.large, dropShadow: false)
                         }
-                        NavigationLink(destination: DetailedView(title: "Calories", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                            LineChartView(data: stepsPerHour, title: "Calories", form: ChartForm.large, dropShadow: false)
+                        NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
+                            LineChartView(data: blankData, title: "Calories", form: ChartForm.large, dropShadow: false)
                         }
                         NavigationLink(destination: DetailedView(title: "Distance", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
                             LineChartView(data: stepsPerHour, title: "Distance", form: ChartForm.large, dropShadow: false)
                         }
-                        NavigationLink(destination: DetailedView(title: "Crypto", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                            LineChartView(data: stepsPerHour, title: "Crypto", form: ChartForm.large, dropShadow: false)
+                        NavigationLink(destination: DetailedView(title: "Crypto", lineData: blankData, inDetailedView: $inDetailedView)) {
+                            LineChartView(data: blankData, title: "Crypto", form: ChartForm.large, dropShadow: false)
                         }
                     }
                 }.navigationBarHidden(true).navigationBarTitle("")

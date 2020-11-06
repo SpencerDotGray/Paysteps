@@ -11,9 +11,6 @@ import CoreMotion
 struct ContentView: View {
     
     @State var sel: Int = 1
-    @State var pedo: Pedometer = Pedometer.sharedInstance
-    
-    let timer = Timer.publish(every: 15.0, on: .main, in: .common).autoconnect()
     
     var body: some View {
         

@@ -20,7 +20,7 @@ struct HomeView: View {
     @State var pedometer: Pedometer = Pedometer.sharedInstance
     
     let timer = Timer.publish(every: 0.025, on: .main, in: .common).autoconnect()
-    let pedoTimer = Timer.publish(every: 0.025, on: .main, in: .common).autoconnect()
+    let pedoTimer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 
     
     var body: some View {
@@ -39,13 +39,14 @@ struct HomeView: View {
                             .onReceive(pedoTimer) { _ in
                                 pedometer.update()
                                 self.stepCount = pedometer.getSteps()
+                                self.stepProgress = CGFloat(self.stepCount / self.stepGoal)
                                 
                                 if self.stepCount > self.stepFlag {
                                     sendNotification(title: "Poggers")
                                     self.stepFlag += 100
                                 }
                             }
-                        Text("\(stepProgress) remaining")
+                        Text("\(self.stepGoal - self.stepCount) steps remaining")
                             .font(.subheadline)
                             .fontWeight(.thin)
                             .multilineTextAlignment(.center)

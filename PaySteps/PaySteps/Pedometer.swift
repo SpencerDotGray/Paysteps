@@ -46,6 +46,53 @@ class Pedometer {
         return distance ?? 0.0
     }
     
+    func getHourlySteps() -> [Double] {
+    
+        var list: [Double] = [Double](repeating: 0.0, count: 24)
+        
+        for i in 0..<list.count {
+            
+            let dateAtMidnight = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())
+            let curHour: Date = Calendar.current.date(byAdding: .hour, value: i, to: dateAtMidnight)!
+            let nextHour: Date = Calendar.current.date(byAdding: .hour, value: 1, to: curHour)!
+            
+            if CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isStepCountingAvailable() {
+                
+                self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
+                    guard let data = data, error == nil else { return }
+                    
+                    list[i] = data.numberOfSteps.doubleValue
+                }
+            }
+        }
+    
+        return list
+    }
+    
+    func getHourlyDistance() -> [Double] {
+    
+        var list: [Double] = [Double](repeating: 0.0, count: 24)
+        
+        for i in 0..<list.count {
+            
+            let dateAtMidnight = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())
+            let curHour: Date = Calendar.current.date(byAdding: .hour, value: i, to: dateAtMidnight)!
+            let nextHour: Date = Calendar.current.date(byAdding: .hour, value: 1, to: curHour)!
+            
+            if CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isStepCountingAvailable() {
+                
+                self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
+                    guard let data = data, error == nil else { return }
+                    
+                    let d = data.distance?.doubleValue ?? 0.0
+                    list[i] = d
+                }
+            }
+        }
+    
+        return list
+    }
+    
     func update() {
         
         if !inUpdate {
@@ -55,7 +102,7 @@ class Pedometer {
             print("\(steps ?? -1)")
             
             OperationQueue.main.addOperation{
-                self.pedometer.startUpdates(from: self.startDate ?? Date()){ (data, error) in
+                self.pedometer.startUpdates(from: NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())){ (data, error) in
                     guard let data = data, error == nil else { return }
                     
                     self.steps = data.numberOfSteps.intValue
