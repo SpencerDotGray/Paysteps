@@ -9,10 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var stepCount: Int = 603
+    @State var stepCount: Int = 0
     @State var stepFlag: Int = 0
-    @State var stepGoal: Int = 900
-    @State var stepProgress: CGFloat = 0.65
+    @State var stepGoal: Int = 10000
+    @State var stepProgress: CGFloat = 0.0
     @State var stepProgressChange: CGFloat = 0.0
     @State var caloriesBurned: Float = 0.0
     @State var distanceTraveled: Float = 0.0
@@ -38,8 +38,9 @@ struct HomeView: View {
                             .multilineTextAlignment(.center)
                             .onReceive(pedoTimer) { _ in
                                 pedometer.update()
-                                self.stepCount = pedometer.getSteps()
-                                self.stepProgress = CGFloat(self.stepCount / self.stepGoal)
+                                //self.stepCount = pedometer.getSteps()
+                                self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
+                                
                                 
                                 if self.stepCount > self.stepFlag {
                                     sendNotification(title: "Poggers")
@@ -55,7 +56,7 @@ struct HomeView: View {
                     }
                     ActivityRing(progress: self.$stepProgress)
                         .onReceive(timer) { _ in
-                            
+
                             while self.stepProgress < self.stepProgressChange {
                                 self.stepProgress.addProduct(0.01, 1)
                             }
@@ -63,9 +64,9 @@ struct HomeView: View {
                 }
                 Spacer()
                     .frame(height: 100)
-                Text("Calories: \(caloriesBurned)")
-                Text("Mileage: \(distanceTraveled)")
-                Text("Time Moving: \(minutesMoving)")
+                Text("Calories: Coming Soon")
+                Text("Mileage: Coming Soon")
+                Text("Time Moving: Coming Soon")
                 Spacer()
                     .frame(height: 70)
             }

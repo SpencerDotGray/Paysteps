@@ -134,6 +134,10 @@ struct LogView: View {
                 Spacer()
             }
             //}
+        }.onAppear {
+            
+            stepsPerHour = pedometer.getHourlySteps()
+            distancePerHour = pedometer.getHourlyDistance()
         }
     }
 }

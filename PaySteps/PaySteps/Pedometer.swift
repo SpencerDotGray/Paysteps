@@ -56,16 +56,13 @@ class Pedometer {
             let curHour: Date = Calendar.current.date(byAdding: .hour, value: i, to: dateAtMidnight)!
             let nextHour: Date = Calendar.current.date(byAdding: .hour, value: 1, to: curHour)!
             
-            if CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isStepCountingAvailable() {
+            self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
+                guard let data = data, error == nil else { return }
                 
-                self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
-                    guard let data = data, error == nil else { return }
-                    
-                    list[i] = data.numberOfSteps.doubleValue
-                }
+                list[i] = data.numberOfSteps.doubleValue
             }
         }
-    
+
         return list
     }
     
@@ -98,8 +95,6 @@ class Pedometer {
         if !inUpdate {
         
             inUpdate.toggle()
-            
-            print("\(steps ?? -1)")
             
             OperationQueue.main.addOperation{
                 self.pedometer.startUpdates(from: NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())){ (data, error) in
