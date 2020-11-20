@@ -19,10 +19,12 @@
 		4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881036C254B6E0900FF91E2 /* HomeView.swift */; };
 		48810372254B769500FF91E2 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810371254B769500FF91E2 /* ActivityRing.swift */; };
 		488B97612550389C008A2058 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B97602550389C008A2058 /* LogView.swift */; };
-		488B976725503A17008A2058 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftPackageProductDependency */; };
+		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
 		489196DF2553171700CEE741 /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489196DE2553171700CEE741 /* Pedometer.swift */; };
 		489F78652568196E0079D74D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 489F78642568196E0079D74D /* GoogleService-Info.plist */; };
 		48EAAB9925538ADC005785FA /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAAB9825538ADC005785FA /* Notifications.swift */; };
+		48FA7F2725682D1A00610152 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7F2625682D1A00610152 /* LoginView.swift */; };
+		48FA7F562568389500610152 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7F552568389500610152 /* DataView.swift */; };
 		6DEB1A42E27F58A2EDD5D4E8 /* Pods_PayStepsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823561C6E868982A79560674 /* Pods_PayStepsTests.framework */; };
 		B8E468C4AD58AEB8F06ED169 /* Pods_PaySteps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFBF60F78C92C5DBEA2734E /* Pods_PaySteps.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		489196DE2553171700CEE741 /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
 		489F78642568196E0079D74D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48EAAB9825538ADC005785FA /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		48FA7F2625682D1A00610152 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		48FA7F552568389500610152 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		4AFBF60F78C92C5DBEA2734E /* Pods_PaySteps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaySteps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		578A9D556B6FDDFFD8FB0A4D /* Pods_PaySteps_PayStepsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaySteps_PayStepsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF2BBA04D60001CEC3D00D1 /* Pods-PaySteps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps.debug.xcconfig"; path = "Target Support Files/Pods-PaySteps/Pods-PaySteps.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				488B976725503A17008A2058 /* BuildFile in Frameworks */,
+				488B976725503A17008A2058 /* SwiftUICharts in Frameworks */,
 				B8E468C4AD58AEB8F06ED169 /* Pods_PaySteps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +147,8 @@
 				488B97602550389C008A2058 /* LogView.swift */,
 				489196DE2553171700CEE741 /* Pedometer.swift */,
 				48EAAB9825538ADC005785FA /* Notifications.swift */,
+				48FA7F2625682D1A00610152 /* LoginView.swift */,
+				48FA7F552568389500610152 /* DataView.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -193,7 +199,6 @@
 				6287CB1ECF6FBACB5C3EFEF3 /* Pods-PayStepsTests.debug.xcconfig */,
 				0D074A12A993B5A219539B4E /* Pods-PayStepsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -216,7 +221,7 @@
 			);
 			name = PaySteps;
 			packageProductDependencies = (
-				488B976625503A17008A2058 /* SwiftPackageProductDependency */,
+				488B976625503A17008A2058 /* SwiftUICharts */,
 			);
 			productName = PaySteps;
 			productReference = 48810336254B6CCD00FF91E2 /* PaySteps.app */;
@@ -293,7 +298,7 @@
 			);
 			mainGroup = 4881032D254B6CCD00FF91E2;
 			packageReferences = (
-				488B976525503A17008A2058 /* RemoteSwiftPackageReference */,
+				488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 48810337254B6CCD00FF91E2 /* Products */;
 			projectDirPath = "";
@@ -444,7 +449,9 @@
 			files = (
 				48EAAB9925538ADC005785FA /* Notifications.swift in Sources */,
 				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
+				48FA7F562568389500610152 /* DataView.swift in Sources */,
 				488B97612550389C008A2058 /* LogView.swift in Sources */,
+				48FA7F2725682D1A00610152 /* LoginView.swift in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
 				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
 				489196DF2553171700CEE741 /* Pedometer.swift in Sources */,
@@ -620,6 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PaySteps/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NS47FT4Y2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PaySteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -629,7 +637,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gray.PaySteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -641,6 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PaySteps/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NS47FT4Y2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PaySteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,7 +659,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gray.PaySteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -780,7 +789,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		488B976525503A17008A2058 /* RemoteSwiftPackageReference */ = {
+		488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
@@ -791,9 +800,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		488B976625503A17008A2058 /* SwiftPackageProductDependency */ = {
+		488B976625503A17008A2058 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 488B976525503A17008A2058 /* RemoteSwiftPackageReference */;
+			package = 488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
