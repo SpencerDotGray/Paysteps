@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024B52E38E8B71EA1B9EC099 /* Pods_PaySteps_PayStepsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578A9D556B6FDDFFD8FB0A4D /* Pods_PaySteps_PayStepsUITests.framework */; };
 		4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810339254B6CCD00FF91E2 /* AppDelegate.swift */; };
 		4881033C254B6CCD00FF91E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */; };
 		4881033E254B6CCD00FF91E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881033D254B6CCD00FF91E2 /* ContentView.swift */; };
@@ -18,9 +19,12 @@
 		4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881036C254B6E0900FF91E2 /* HomeView.swift */; };
 		48810372254B769500FF91E2 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810371254B769500FF91E2 /* ActivityRing.swift */; };
 		488B97612550389C008A2058 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B97602550389C008A2058 /* LogView.swift */; };
-		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
+		488B976725503A17008A2058 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftPackageProductDependency */; };
 		489196DF2553171700CEE741 /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489196DE2553171700CEE741 /* Pedometer.swift */; };
+		489F78652568196E0079D74D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 489F78642568196E0079D74D /* GoogleService-Info.plist */; };
 		48EAAB9925538ADC005785FA /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAAB9825538ADC005785FA /* Notifications.swift */; };
+		6DEB1A42E27F58A2EDD5D4E8 /* Pods_PayStepsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823561C6E868982A79560674 /* Pods_PayStepsTests.framework */; };
+		B8E468C4AD58AEB8F06ED169 /* Pods_PaySteps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFBF60F78C92C5DBEA2734E /* Pods_PaySteps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D074A12A993B5A219539B4E /* Pods-PayStepsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayStepsTests.release.xcconfig"; path = "Target Support Files/Pods-PayStepsTests/Pods-PayStepsTests.release.xcconfig"; sourceTree = "<group>"; };
+		199DD6D0D3C65B7B11DF09EE /* Pods-PaySteps-PayStepsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps-PayStepsUITests.debug.xcconfig"; path = "Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		43C4F71E39519F2F6AC32523 /* Pods-PaySteps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps.release.xcconfig"; path = "Target Support Files/Pods-PaySteps/Pods-PaySteps.release.xcconfig"; sourceTree = "<group>"; };
 		48810336254B6CCD00FF91E2 /* PaySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48810339254B6CCD00FF91E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +66,14 @@
 		48810371254B769500FF91E2 /* ActivityRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRing.swift; sourceTree = "<group>"; };
 		488B97602550389C008A2058 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		489196DE2553171700CEE741 /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
+		489F78642568196E0079D74D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48EAAB9825538ADC005785FA /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		4AFBF60F78C92C5DBEA2734E /* Pods_PaySteps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaySteps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		578A9D556B6FDDFFD8FB0A4D /* Pods_PaySteps_PayStepsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaySteps_PayStepsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF2BBA04D60001CEC3D00D1 /* Pods-PaySteps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps.debug.xcconfig"; path = "Target Support Files/Pods-PaySteps/Pods-PaySteps.debug.xcconfig"; sourceTree = "<group>"; };
+		6287CB1ECF6FBACB5C3EFEF3 /* Pods-PayStepsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayStepsTests.debug.xcconfig"; path = "Target Support Files/Pods-PayStepsTests/Pods-PayStepsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6320695D9A4C7A4A071D14C1 /* Pods-PaySteps-PayStepsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps-PayStepsUITests.release.xcconfig"; path = "Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		823561C6E868982A79560674 /* Pods_PayStepsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayStepsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				488B976725503A17008A2058 /* SwiftUICharts in Frameworks */,
+				488B976725503A17008A2058 /* BuildFile in Frameworks */,
+				B8E468C4AD58AEB8F06ED169 /* Pods_PaySteps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEB1A42E27F58A2EDD5D4E8 /* Pods_PayStepsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024B52E38E8B71EA1B9EC099 /* Pods_PaySteps_PayStepsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +112,8 @@
 				4881034F254B6CCE00FF91E2 /* PayStepsTests */,
 				4881035A254B6CCE00FF91E2 /* PayStepsUITests */,
 				48810337254B6CCD00FF91E2 /* Products */,
+				EEDC2D7D9973FE1EECA2E83B /* Pods */,
+				87855E2BF95503A0A285A3BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +130,7 @@
 		48810338254B6CCD00FF91E2 /* PaySteps */ = {
 			isa = PBXGroup;
 			children = (
+				489F78642568196E0079D74D /* GoogleService-Info.plist */,
 				48810339254B6CCD00FF91E2 /* AppDelegate.swift */,
 				4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */,
 				4881033D254B6CCD00FF91E2 /* ContentView.swift */,
@@ -153,6 +173,30 @@
 			path = PayStepsUITests;
 			sourceTree = "<group>";
 		};
+		87855E2BF95503A0A285A3BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AFBF60F78C92C5DBEA2734E /* Pods_PaySteps.framework */,
+				578A9D556B6FDDFFD8FB0A4D /* Pods_PaySteps_PayStepsUITests.framework */,
+				823561C6E868982A79560674 /* Pods_PayStepsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEDC2D7D9973FE1EECA2E83B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BF2BBA04D60001CEC3D00D1 /* Pods-PaySteps.debug.xcconfig */,
+				43C4F71E39519F2F6AC32523 /* Pods-PaySteps.release.xcconfig */,
+				199DD6D0D3C65B7B11DF09EE /* Pods-PaySteps-PayStepsUITests.debug.xcconfig */,
+				6320695D9A4C7A4A071D14C1 /* Pods-PaySteps-PayStepsUITests.release.xcconfig */,
+				6287CB1ECF6FBACB5C3EFEF3 /* Pods-PayStepsTests.debug.xcconfig */,
+				0D074A12A993B5A219539B4E /* Pods-PayStepsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48810360254B6CCE00FF91E2 /* Build configuration list for PBXNativeTarget "PaySteps" */;
 			buildPhases = (
+				7BFBB903A61F2BB9D6C8216C /* [CP] Check Pods Manifest.lock */,
 				48810332254B6CCD00FF91E2 /* Sources */,
 				48810333254B6CCD00FF91E2 /* Frameworks */,
 				48810334254B6CCD00FF91E2 /* Resources */,
+				3ED98E1A8BA2FB4FABFD43DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,7 +216,7 @@
 			);
 			name = PaySteps;
 			packageProductDependencies = (
-				488B976625503A17008A2058 /* SwiftUICharts */,
+				488B976625503A17008A2058 /* SwiftPackageProductDependency */,
 			);
 			productName = PaySteps;
 			productReference = 48810336254B6CCD00FF91E2 /* PaySteps.app */;
@@ -180,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48810363254B6CCE00FF91E2 /* Build configuration list for PBXNativeTarget "PayStepsTests" */;
 			buildPhases = (
+				71A95CC90CF8950D9A7DB62A /* [CP] Check Pods Manifest.lock */,
 				48810348254B6CCE00FF91E2 /* Sources */,
 				48810349254B6CCE00FF91E2 /* Frameworks */,
 				4881034A254B6CCE00FF91E2 /* Resources */,
@@ -198,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48810366254B6CCE00FF91E2 /* Build configuration list for PBXNativeTarget "PayStepsUITests" */;
 			buildPhases = (
+				F1090BC28499D0057B4C82E9 /* [CP] Check Pods Manifest.lock */,
 				48810353254B6CCE00FF91E2 /* Sources */,
 				48810354254B6CCE00FF91E2 /* Frameworks */,
 				48810355254B6CCE00FF91E2 /* Resources */,
+				4EFDBE4BB0EC04C0882CDB06 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,7 +293,7 @@
 			);
 			mainGroup = 4881032D254B6CCD00FF91E2;
 			packageReferences = (
-				488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */,
+				488B976525503A17008A2058 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 48810337254B6CCD00FF91E2 /* Products */;
 			projectDirPath = "";
@@ -263,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48810346254B6CCD00FF91E2 /* LaunchScreen.storyboard in Resources */,
+				489F78652568196E0079D74D /* GoogleService-Info.plist in Resources */,
 				48810343254B6CCD00FF91E2 /* Preview Assets.xcassets in Resources */,
 				48810340254B6CCD00FF91E2 /* Assets.xcassets in Resources */,
 			);
@@ -283,6 +333,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3ED98E1A8BA2FB4FABFD43DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PaySteps/Pods-PaySteps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PaySteps/Pods-PaySteps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PaySteps/Pods-PaySteps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFDBE4BB0EC04C0882CDB06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71A95CC90CF8950D9A7DB62A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PayStepsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BFBB903A61F2BB9D6C8216C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PaySteps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1090BC28499D0057B4C82E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PaySteps-PayStepsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		48810332254B6CCD00FF91E2 /* Sources */ = {
@@ -461,6 +614,7 @@
 		};
 		48810361254B6CCE00FF91E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BF2BBA04D60001CEC3D00D1 /* Pods-PaySteps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -481,6 +635,7 @@
 		};
 		48810362254B6CCE00FF91E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C4F71E39519F2F6AC32523 /* Pods-PaySteps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -501,6 +656,7 @@
 		};
 		48810364254B6CCE00FF91E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6287CB1ECF6FBACB5C3EFEF3 /* Pods-PayStepsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -522,6 +678,7 @@
 		};
 		48810365254B6CCE00FF91E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D074A12A993B5A219539B4E /* Pods-PayStepsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -543,6 +700,7 @@
 		};
 		48810367254B6CCE00FF91E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 199DD6D0D3C65B7B11DF09EE /* Pods-PaySteps-PayStepsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +720,7 @@
 		};
 		48810368254B6CCE00FF91E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6320695D9A4C7A4A071D14C1 /* Pods-PaySteps-PayStepsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -621,7 +780,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+		488B976525503A17008A2058 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
@@ -632,9 +791,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		488B976625503A17008A2058 /* SwiftUICharts */ = {
+		488B976625503A17008A2058 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 488B976525503A17008A2058 /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = 488B976525503A17008A2058 /* RemoteSwiftPackageReference */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
