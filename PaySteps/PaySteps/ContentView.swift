@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        if vm.verified == nil || vm.verified == false {
+        if vm.loginEmail != .valid || vm.verified != .valid {
             
             LoginView()
         } else {

@@ -70,7 +70,7 @@ struct HomeView: View {
                 Text("Time Moving: Coming Soon")
                 Spacer()
                     .frame(height: 20)
-                Button(action: {vm.currentUser = nil; vm.verified = nil}) {
+                Button(action: {vm.currentUser = nil; vm.verified = .notDefined; vm.loginEmail = .notDefined }) {
                     Text("Logout")
                 }
                 Spacer()
