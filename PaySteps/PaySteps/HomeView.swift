@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @ObservedObject var vm: DataView = DataView.sharedInstance
     @State var stepCount: Int = 0
     @State var stepFlag: Int = 0
     @State var stepGoal: Int = 10000
@@ -67,6 +68,11 @@ struct HomeView: View {
                 Text("Calories: Coming Soon")
                 Text("Mileage: Coming Soon")
                 Text("Time Moving: Coming Soon")
+                Spacer()
+                    .frame(height: 20)
+                Button(action: {vm.currentUser = nil; vm.verified = nil}) {
+                    Text("Logout")
+                }
                 Spacer()
                     .frame(height: 70)
             }
