@@ -52,9 +52,11 @@ class DataView : ObservableObject {
         var title: String
         var description: String
         var cost: Int
+        var image: UIImage?
     }
     
     var db: Firestore? = nil
+    var storage: Storage? = nil
     @Published var currentUser: [String : Any]? = nil
     @Published var currentUserUID: String = ""
     @Published var loginEmail: SignInEmail = .notDefined
@@ -72,6 +74,7 @@ class DataView : ObservableObject {
         FirebaseApp.configure()
         
         instance.db = Firestore.firestore()
+        instance.storage = Storage.storage()
         
         return instance
     }()
@@ -271,12 +274,15 @@ class DataView : ObservableObject {
                                 let title = document.data()["title"] as? String ?? ""
                                 let description = document.data()["description"] as? String ?? ""
                                 let cost = document.data()["cost"] as? Int ?? 0
+                                let image = document.data()["image"] as? String ?? ""
                                 
                                 if title != "" {
                                     temp.title = title
                                     temp.description = description
                                     temp.cost = cost
+                                    temp.image = nil
                                     DataView.sharedInstance.activePromotions.append(temp)
+                                    DataView.sharedInstance.getPhoto(gsLink: image, index: DataView.sharedInstance.activePromotions.count-1)
                                 }
                             }
                         }
@@ -292,7 +298,9 @@ class DataView : ObservableObject {
     
     func getNotification() -> (title: String, description: String) {
         
-        let temp: (title: String, description: String) = (self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].title, self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].description)
+        let randIndex: Int = Int.random(in: 0..<self.activeNotifications.count-1)
+        
+        let temp: (title: String, description: String) = (self.activeNotifications[randIndex].title, self.activeNotifications[randIndex].description)
         
         return temp
     }
@@ -308,5 +316,24 @@ class DataView : ObservableObject {
             self.currentUser!["balance"] = temp
         }
         
+    }
+    
+    func getPhoto(gsLink: String, index: Int) {
+    
+        if gsLink != "" {
+            let gsReference = storage!.reference(forURL: "\(gsLink)")
+            
+            gsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        // Uh-oh, an error occurred!
+                        print("\(error)")
+                    } else {
+                        
+                        let image = UIImage(data: data!)
+                        DataView.sharedInstance.activePromotions[index].image = image
+                    }
+                }
+        }
+
     }
 }

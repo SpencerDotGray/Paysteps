@@ -14,6 +14,11 @@ struct ContentView: View {
     @ObservedObject var vm: DataView = DataView.sharedInstance
     @State var sel: Int = 1
     
+    var dark: Color = Color(red: 154/255, green: 179/255, blue: 245/255)
+    var light: Color = Color(red: 185/255, green: 255/255, blue: 252/255)
+    var borderColor: Color = Color(red: 163/255, green: 216/255, blue: 244/255)
+    var backgroundColor: Color = Color(red: 241/255, green: 243/255, blue: 248/255)
+    
     var body: some View {
         
         VStack {
@@ -26,6 +31,8 @@ struct ContentView: View {
                     LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
                     HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
                     CryptoView().tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
+                }.onAppear {
+                    UITabBar.appearance().backgroundColor = UIColor(self.dark)
                 }
             }
         }.onAppear {

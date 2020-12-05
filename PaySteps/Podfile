@@ -8,9 +8,11 @@ target 'PaySteps' do
   # Pods for PaySteps
 
   # add the Firebase pod for Google Analytics
+  pod 'Google/SignIn'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift'
   pod 'CryptoSwift'
   # add pods for any other desired Firebase products

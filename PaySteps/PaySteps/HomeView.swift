@@ -42,7 +42,6 @@ struct HomeView: View {
                                 self.stepCount = pedometer.getSteps()
                                 self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
                                 
-                                
                                 if self.stepCount > self.stepFlag {
                                     sendNotification(title: "Poggers")
                                     self.stepFlag += 100
@@ -68,13 +67,6 @@ struct HomeView: View {
                 Text("Calories: Coming Soon")
                 Text("Mileage: Coming Soon")
                 Text("Time Moving: Coming Soon")
-                Spacer()
-                    .frame(height: 20)
-                Button(action: {vm.currentUser = nil; vm.verified = .notDefined; vm.loginEmail = .notDefined }) {
-                    Text("Logout")
-                }
-                Spacer()
-                    .frame(height: 70)
             }
         }
     }
