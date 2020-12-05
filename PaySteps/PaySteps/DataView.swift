@@ -47,6 +47,13 @@ class DataView : ObservableObject {
         var description: String
     }
     
+    struct Promotion {
+        
+        var title: String
+        var description: String
+        var cost: Int
+    }
+    
     var db: Firestore? = nil
     @Published var currentUser: [String : Any]? = nil
     @Published var currentUserUID: String = ""
@@ -56,6 +63,7 @@ class DataView : ObservableObject {
     @Published var emailFreeToUse: SignUpEmail = .notDefined
     @Published var checkEmailCompletion: (() -> Void)? = nil
     @Published var activeNotifications: [Notification] = []
+    @Published var activePromotions: [Promotion] = []
     
     static let sharedInstance: DataView = {
         
@@ -233,6 +241,50 @@ class DataView : ObservableObject {
                     if DataView.sharedInstance.activeNotifications.count == 0 {
                         
                         DataView.sharedInstance.activeNotifications.append(Notification(title: "No Ads Available", description: "We currently have no available ads.\nSo here's a freebee on us.\n Don't worry, you're still getting cryptocurrency!"))
+                    }
+                }
+            }
+    }
+    
+    func loadPromotions() {
+        
+        let docRef = db!.collection("promotions")
+        
+        docRef.whereField("active", isEqualTo: true)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    DataView.sharedInstance.activePromotions = []
+                    
+                    if let qs = querySnapshot {
+                        
+                        print("Number of Promotions: \(qs.documents.count)")
+                        
+                        if qs.documents.count > 0 {
+                            
+                            for document in qs.documents {
+                                
+                                var temp = Promotion(title: "", description: "", cost: 0)
+                                
+                                let title = document.data()["title"] as? String ?? ""
+                                let description = document.data()["description"] as? String ?? ""
+                                let cost = document.data()["cost"] as? Int ?? 0
+                                
+                                if title != "" {
+                                    temp.title = title
+                                    temp.description = description
+                                    temp.cost = cost
+                                    DataView.sharedInstance.activePromotions.append(temp)
+                                }
+                            }
+                        }
+                    }
+                    
+                    if DataView.sharedInstance.activeNotifications.count == 0 {
+                        
+                        DataView.sharedInstance.activeNotifications.append(Notification(title: "No Promotions Available", description: "No Promotions are Available.\nCome back another time"))
                     }
                 }
             }
