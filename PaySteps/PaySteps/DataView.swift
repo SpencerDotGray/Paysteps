@@ -49,6 +49,7 @@ class DataView : ObservableObject {
     
     var db: Firestore? = nil
     @Published var currentUser: [String : Any]? = nil
+    @Published var currentUserUID: String = ""
     @Published var loginEmail: SignInEmail = .notDefined
     @Published var verified: SignInPassword = .notDefined
     @Published var passwordConfirmed: SignUpPassword = .notDefined
@@ -143,11 +144,13 @@ class DataView : ObservableObject {
             if let document = document, document.exists {
                 
                 DataView.sharedInstance.currentUser = document.data()
+                DataView.sharedInstance.currentUserUID = document.documentID
                 DataView.sharedInstance.loginEmail = .valid
                 DataView.sharedInstance.verified = .valid
             } else {
                 print("Document does not exist")
                 DataView.sharedInstance.loginEmail = .invalid
+                DataView.sharedInstance.currentUserUID = ""
             }
         }
     }
@@ -166,9 +169,11 @@ class DataView : ObservableObject {
                     if let user = querySnapshot!.documents.first {
                         
                         DataView.sharedInstance.currentUser = user.data()
+                        DataView.sharedInstance.currentUserUID = user.documentID
                         DataView.sharedInstance.loginEmail = .valid
                     } else {
                         DataView.sharedInstance.loginEmail = .invalid
+                        DataView.sharedInstance.currentUserUID = ""
                     }
                 }
             }
@@ -238,5 +243,18 @@ class DataView : ObservableObject {
         let temp: (title: String, description: String) = (self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].title, self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].description)
         
         return temp
+    }
+    
+    func changeBalance(amount: Int) {
+        
+        if currentUser != nil {
+            
+            let temp: Int = self.currentUser!["balance"] as! Int + amount
+            
+            db!.collection("users").document("\(self.currentUserUID)").setData([ "balance": temp ], merge: true)
+            
+            self.currentUser!["balance"] = temp
+        }
+        
     }
 }
