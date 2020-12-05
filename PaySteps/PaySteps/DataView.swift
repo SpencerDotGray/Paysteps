@@ -41,6 +41,12 @@ class DataView : ObservableObject {
         case valid
     }
     
+    struct Notification {
+        
+        var title: String
+        var description: String
+    }
+    
     var db: Firestore? = nil
     @Published var currentUser: [String : Any]? = nil
     @Published var loginEmail: SignInEmail = .notDefined
@@ -48,6 +54,7 @@ class DataView : ObservableObject {
     @Published var passwordConfirmed: SignUpPassword = .notDefined
     @Published var emailFreeToUse: SignUpEmail = .notDefined
     @Published var checkEmailCompletion: (() -> Void)? = nil
+    @Published var activeNotifications: [Notification] = []
     
     static let sharedInstance: DataView = {
         
@@ -155,8 +162,6 @@ class DataView : ObservableObject {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-
-                    //print("\(querySnapshot!.documents.first!.documentID) => \(querySnapshot!.documents.first!.data())")
                     
                     if let user = querySnapshot!.documents.first {
                         
@@ -184,5 +189,54 @@ class DataView : ObservableObject {
                 DataView.sharedInstance.verified = .invalid
             }
         }
+    }
+    
+    func loadNotifications() {
+        
+        let docRef = db!.collection("ads")
+        
+        docRef.whereField("live", isEqualTo: true)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    DataView.sharedInstance.activeNotifications = []
+                    
+                    if let qs = querySnapshot {
+                        
+                        print("Number of Ads: \(qs.documents.count)")
+                        
+                        if qs.documents.count > 0 {
+                            
+                            for document in qs.documents {
+                                
+                                var temp = Notification(title: "", description: "")
+                                
+                                let title = document.data()["title"] as? String ?? ""
+                                let description = document.data()["description"] as? String ?? ""
+                                
+                                if title != "" {
+                                    temp.title = title
+                                    temp.description = description
+                                    DataView.sharedInstance.activeNotifications.append(temp)
+                                }
+                            }
+                        }
+                    }
+                    
+                    if DataView.sharedInstance.activeNotifications.count == 0 {
+                        
+                        DataView.sharedInstance.activeNotifications.append(Notification(title: "No Ads Available", description: "We currently have no available ads.\nSo here's a freebee on us.\n Don't worry, you're still getting cryptocurrency!"))
+                    }
+                }
+            }
+    }
+    
+    func getNotification() -> (title: String, description: String) {
+        
+        let temp: (title: String, description: String) = (self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].title, self.activeNotifications[Int.random(in: 0..<self.activeNotifications.count)].description)
+        
+        return temp
     }
 }

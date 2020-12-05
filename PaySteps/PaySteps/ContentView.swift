@@ -16,16 +16,20 @@ struct ContentView: View {
     
     var body: some View {
         
-        if vm.loginEmail != .valid || vm.verified != .valid {
+        VStack {
+            if vm.loginEmail != .valid || vm.verified != .valid {
+                
+                LoginView()
+            } else {
             
-            LoginView()
-        } else {
-        
-            TabView(selection: self.$sel) {
-                LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
-                HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
-                Text("Coming Soon").tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
+                TabView(selection: self.$sel) {
+                    LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
+                    HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
+                    Text("Coming Soon").tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
+                }
             }
+        }.onAppear {
+            vm.loadNotifications()
         }
     }
 }

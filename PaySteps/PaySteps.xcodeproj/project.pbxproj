@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		024B52E38E8B71EA1B9EC099 /* Pods_PaySteps_PayStepsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578A9D556B6FDDFFD8FB0A4D /* Pods_PaySteps_PayStepsUITests.framework */; };
+		486FC76A257B41C300C58355 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486FC769257B41C300C58355 /* CryptoView.swift */; };
 		4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48810339254B6CCD00FF91E2 /* AppDelegate.swift */; };
 		4881033C254B6CCD00FF91E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */; };
 		4881033E254B6CCD00FF91E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4881033D254B6CCD00FF91E2 /* ContentView.swift */; };
@@ -50,6 +51,7 @@
 		0D074A12A993B5A219539B4E /* Pods-PayStepsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayStepsTests.release.xcconfig"; path = "Target Support Files/Pods-PayStepsTests/Pods-PayStepsTests.release.xcconfig"; sourceTree = "<group>"; };
 		199DD6D0D3C65B7B11DF09EE /* Pods-PaySteps-PayStepsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps-PayStepsUITests.debug.xcconfig"; path = "Target Support Files/Pods-PaySteps-PayStepsUITests/Pods-PaySteps-PayStepsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		43C4F71E39519F2F6AC32523 /* Pods-PaySteps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaySteps.release.xcconfig"; path = "Target Support Files/Pods-PaySteps/Pods-PaySteps.release.xcconfig"; sourceTree = "<group>"; };
+		486FC769257B41C300C58355 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		48810336254B6CCD00FF91E2 /* PaySteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaySteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48810339254B6CCD00FF91E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4881033B254B6CCD00FF91E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				48EAAB9825538ADC005785FA /* Notifications.swift */,
 				48FA7F2625682D1A00610152 /* LoginView.swift */,
 				48FA7F552568389500610152 /* DataView.swift */,
+				486FC769257B41C300C58355 /* CryptoView.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
 				48FA7F562568389500610152 /* DataView.swift in Sources */,
 				488B97612550389C008A2058 /* LogView.swift in Sources */,
+				486FC76A257B41C300C58355 /* CryptoView.swift in Sources */,
 				48FA7F2725682D1A00610152 /* LoginView.swift in Sources */,
 				4881033A254B6CCD00FF91E2 /* AppDelegate.swift in Sources */,
 				4881036D254B6E0900FF91E2 /* HomeView.swift in Sources */,
