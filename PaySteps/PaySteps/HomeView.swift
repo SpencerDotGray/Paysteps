@@ -23,7 +23,6 @@ struct HomeView: View {
     let timer = Timer.publish(every: 0.025, on: .main, in: .common).autoconnect()
     let pedoTimer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 
-    
     var body: some View {
         
         GeometryReader { metrics in
@@ -52,7 +51,7 @@ struct HomeView: View {
                                             self.stepFlag += 250
                                         }
                                 }
-                            Text("\(self.stepGoal - self.stepCount) steps remaining")
+                            Text("\(vm.currentUser!["stepGoal"] as! Float) steps remaining")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                                 .multilineTextAlignment(.center)
@@ -69,9 +68,6 @@ struct HomeView: View {
                     }
                     Spacer()
                         .frame(height: 150)
-    //                Text("Calories: Coming Soon")
-    //                Text("Mileage: Coming Soon")
-    //                Text("Time Moving: Coming Soon")
                 }
             }
         }

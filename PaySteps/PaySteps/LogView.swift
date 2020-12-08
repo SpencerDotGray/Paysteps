@@ -45,7 +45,28 @@ struct DetailedView: View {
         ZStack {
         
             VStack {
+                Spacer()
+                    .frame(height: 20)
                 LineView(data: lineData ?? [0], title: self.title)
+                    .background(Color.white)
+            }.background(Color.white)
+            
+            VStack {
+                
+                Spacer()
+                    .frame(height: 10)
+                HStack {
+                    Spacer().frame(width: 10)
+                    Button(action: { self.goBack.toggle() }) {
+                        
+                        HStack {
+                            Image(systemName: "arrow.left")
+                            Text("Back")
+                        }
+                    }
+                    Spacer()
+                }
+                Spacer()
             }
         }.padding(.horizontal, 10.0)
     }
@@ -76,15 +97,31 @@ struct LogView: View {
 
             } else {
                 
-                NavigationView {
+                ScrollView {
                     
                     LazyVStack {
-                        NavigationLink(destination: DetailedView(title: "Steps", lineData: blankData, goBack: self.$showDetailedView)) {
-                            LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.large, dropShadow: false)
-                        }
-                        NavigationLink(destination: DetailedView(title: "Distance", lineData: blankData, goBack: self.$showDetailedView)) {
-                            LineChartView(data: blankData, title: "Distance", form: ChartForm.large, dropShadow: false)
-                        }
+                        
+                        LineChartView(data: pedometer.hourSteps, title: "Steps", form: ChartForm.large, dropShadow: false)
+                            .onTapGesture {
+                                
+                                self.showDetailedView.toggle()
+                                self.detailedTitle = "Steps"
+                                self.detailedData = pedometer.hourSteps
+                            }
+                        LineChartView(data: pedometer.hourDist, title: "Distance", form: ChartForm.large, dropShadow: false)
+                            .onTapGesture {
+                                
+                                self.showDetailedView.toggle()
+                                self.detailedTitle = "Distance"
+                                self.detailedData = pedometer.hourDist
+                            }
+                        LineChartView(data: pedometer.hourCal, title: "Calories", form: ChartForm.large, dropShadow: false)
+                            .onTapGesture {
+                                
+                                self.showDetailedView.toggle()
+                                self.detailedTitle = "Calories"
+                                self.detailedData = pedometer.hourCal
+                            }
                     }
                 }.navigationBarTitle("Logs")
             }
