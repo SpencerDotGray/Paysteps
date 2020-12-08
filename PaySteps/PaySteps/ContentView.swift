@@ -39,6 +39,7 @@ struct ContentView: View {
         }.onAppear {
             vm.loadNotifications()
             vm.loadPromotions()
+            requestNotifPermissions()
         }
     }
 }

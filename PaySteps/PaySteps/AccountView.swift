@@ -10,7 +10,7 @@ import SwiftUI
 struct AccountView: View {
     
     @ObservedObject var vm = DataView.sharedInstance
-    @State var pedometer = Pedometer.sharedInstance
+    @ObservedObject var pedometer = Pedometer.sharedInstance
     
     @State var inEdit: Bool = false
     @State var name: String = "temp"

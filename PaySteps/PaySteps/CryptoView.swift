@@ -148,14 +148,6 @@ struct CryptoView: View {
 //                            }
                         }
                         Spacer()
-                        Button(action: {
-                            vm.currentUser = nil
-                            vm.verified = .notDefined
-                            vm.loginEmail = .notDefined
-                        }) {
-                            Text("Sign Out")
-                        }
-                        Spacer()
                             .frame(width: 10)
                     }.background(Rectangle().stroke(Color.gray, lineWidth: 1).background(self.light))
                     

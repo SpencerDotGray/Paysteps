@@ -50,7 +50,7 @@ struct HomeView: View {
                                             
                                         }
                                 }
-                            Text("\(vm.currentUser!["stepGoal"] as! Int) steps remaining")
+                            Text("\((vm.currentUser ?? ["stepGoal": 0])["stepGoal"] as! Int ) steps remaining")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                                 .multilineTextAlignment(.center)
