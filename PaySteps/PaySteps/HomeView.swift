@@ -26,47 +26,49 @@ struct HomeView: View {
     
     var body: some View {
         
-        ZStack {
-        
-            Color(red: 241/255, green: 243/255, blue: 248/255)
+        GeometryReader { metrics in
+            ZStack {
             
-            VStack {
-                ZStack {
-                    VStack {
-                        Text("\(stepCount)")
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .multilineTextAlignment(.center)
-                            .onReceive(pedoTimer) { _ in
-                                pedometer.update()
-                                self.stepCount = pedometer.getSteps()
-                                self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
-                                
-                                if self.stepCount > self.stepFlag {
-                                    sendNotification(title: "Poggers")
-                                    self.stepFlag += 100
+                Color(red: 241/255, green: 243/255, blue: 248/255)
+                
+                VStack {
+                    ZStack {
+                        VStack {
+                            Text("\(stepCount)")
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .multilineTextAlignment(.center)
+                                .onReceive(pedoTimer) { _ in
+                                    pedometer.update()
+                                    self.stepCount = pedometer.getSteps()
+                                    self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
+                                    
+                                    if self.stepCount > self.stepFlag {
+                                        sendNotification(title: "Poggers")
+                                        self.stepFlag += 100
+                                    }
+                                }
+                            Text("\(self.stepGoal - self.stepCount) steps remaining")
+                                .font(.subheadline)
+                                .fontWeight(.thin)
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                                .frame(height: 10)
+                        }
+                        ActivityRing(progress: self.$stepProgress, radius: metrics.size.width * 0.75)
+                            .onReceive(timer) { _ in
+
+                                while self.stepProgress < self.stepProgressChange {
+                                    self.stepProgress.addProduct(0.01, 1)
                                 }
                             }
-                        Text("\(self.stepGoal - self.stepCount) steps remaining")
-                            .font(.subheadline)
-                            .fontWeight(.thin)
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                            .frame(height: 10)
                     }
-                    ActivityRing(progress: self.$stepProgress)
-                        .onReceive(timer) { _ in
-
-                            while self.stepProgress < self.stepProgressChange {
-                                self.stepProgress.addProduct(0.01, 1)
-                            }
-                        }
+                    Spacer()
+                        .frame(height: 150)
+    //                Text("Calories: Coming Soon")
+    //                Text("Mileage: Coming Soon")
+    //                Text("Time Moving: Coming Soon")
                 }
-                Spacer()
-                    .frame(height: 100)
-                Text("Calories: Coming Soon")
-                Text("Mileage: Coming Soon")
-                Text("Time Moving: Coming Soon")
             }
         }
     }

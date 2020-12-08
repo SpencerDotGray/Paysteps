@@ -22,124 +22,132 @@ struct SignUpView: View {
     
     var body: some View {
         
-        VStack {
+        GeometryReader { metrics in
             
             VStack {
                 
                 VStack {
-                    if vm.passwordConfirmed == .doesNotMatch {
+                    
+                    VStack {
+                        if vm.passwordConfirmed == .doesNotMatch {
+                            
+                            Text("Passwords Do Not Match")
+                                .foregroundColor(Color.red)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                        }
                         
-                        Text("Passwords Do Not Match")
-                            .foregroundColor(Color.red)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
+                        if vm.passwordConfirmed == .empty {
+                            
+                            Text("Password field empty")
+                                .foregroundColor(Color.red)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                        }
+                        
+                        if vm.emailFreeToUse == .invalid {
+                            
+                            Text("Invalid Email")
+                                .foregroundColor(Color.red)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                        }
+                        
+                        if vm.emailFreeToUse == .alreadyInUse {
+                            
+                            Text("Account with email already exists")
+                                .foregroundColor(Color.red)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                        }
                     }
                     
-                    if vm.passwordConfirmed == .empty {
+                    VStack {
                         
-                        Text("Password field empty")
-                            .foregroundColor(Color.red)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
+                        HStack { // Sign Up Email Field
+                            TextField("Email", text: self.$email)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .onChange(of: self.email) { _ in
+                                    vm.emailFreeToUse = .notDefined
+                                }
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.purple, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                .frame(height: 50)
+                        )
+                        .frame(width: metrics.size.width * 0.85, height: 50)
+                        
+                        Spacer()
+                            .frame(height: 15)
+                        
+                        HStack { // Sign Up Password Field
+                            SecureField("Password", text: self.$password)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .onChange(of: self.password) { _ in
+                                    vm.passwordConfirmed = .notDefined
+                                }
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.purple, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                .frame(height: 50)
+                        )
+                        .frame(width: metrics.size.width * 0.85, height: 50)
+                        
+                        Spacer()
+                            .frame(height: 15)
+                        
+                        HStack { // Sign Up Confirm Password Field
+                            SecureField("Confirm Password", text: self.$confirmPassword)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .onChange(of: self.confirmPassword) { _ in
+                                    vm.passwordConfirmed = .notDefined
+                                }
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.purple, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                .frame(height: 50)
+                        )
+                        .frame(width: metrics.size.width * 0.85, height: 50)
                     }
                     
-                    if vm.emailFreeToUse == .invalid {
-                        
-                        Text("Invalid Email")
-                            .foregroundColor(Color.red)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
-                    }
-                    
-                    if vm.emailFreeToUse == .alreadyInUse {
-                        
-                        Text("Account with email already exists")
-                            .foregroundColor(Color.red)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
-                    }
-                }
+                }.background(Color(.white))
                 
-                VStack {
-                    
-                    HStack {
-                        TextField("Email", text: self.$email)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .onChange(of: self.email) { _ in
-                                vm.emailFreeToUse = .notDefined
-                            }
-                    }
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.purple, lineWidth: 1)
-                            .background(Color(red: 241/255, green: 243/255, blue: 248/255))
-                            .frame(height: 50)
-                    )
-                    .frame(width: 325, height: 50)
-                    
-                    Spacer()
-                        .frame(height: 15)
-                    
-                    HStack {
-                        SecureField("Password", text: self.$password)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .onChange(of: self.password) { _ in
-                                vm.passwordConfirmed = .notDefined
-                            }
-                    }
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.purple, lineWidth: 1)
-                            .background(Color(red: 241/255, green: 243/255, blue: 248/255))
-                            .frame(height: 50)
-                    )
-                    .frame(width: 325, height: 50)
-                    
-                    Spacer()
-                        .frame(height: 15)
-                    
-                    HStack {
-                        SecureField("Confirm Password", text: self.$confirmPassword)
-                            .padding(.vertical, 5.0)
-                            .padding(.horizontal, 20.0)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .onChange(of: self.confirmPassword) { _ in
-                                vm.passwordConfirmed = .notDefined
-                            }
-                    }
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.purple, lineWidth: 1)
-                            .background(Color(red: 241/255, green: 243/255, blue: 248/255))
-                            .frame(height: 50)
-                    )
-                    .frame(width: 325, height: 50)
-                }
+                Spacer()
+                    .frame(height: 25)
                 
-            }.background(Color(.white))
-            
-            Spacer()
-                .frame(height: 25)
-            
-            Button(action: { addUser() }) {
-                
-                Text("Sign Up")
-                    .fontWeight(.light)
-                    .foregroundColor(Color.white)
-            }.background(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.purple, lineWidth: 1)
-                    .background(Color(red: 154/255, green: 179/255, blue: 245/255))
-                    .frame(width: 325, height: 50)
-            )
-            .frame(width: 325, height: 45)
+                Button(action: { addUser() }) {
+                    
+                    Text("Sign Up")
+                        .fontWeight(.light)
+                        .foregroundColor(Color.white)
+                        .frame(width: metrics.size.width * 0.85)
+                }.background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.purple, lineWidth: 1)
+                        .background(RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color(red: 154/255, green: 179/255, blue: 245/255)))
+                        .frame(width: metrics.size.width * 0.85, height: 50)
+                )
+                .frame(width: metrics.size.width, height: 45)
+            }
         }
     }
 }
@@ -167,89 +175,122 @@ struct SignInView: View {
     
     var body: some View {
         
-        VStack {
-            
+        GeometryReader { metrics in
             VStack {
                 
-                if vm.verified == .invalid {
+                VStack {
                     
-                    Text("Password Not Correct")
-                        .foregroundColor(Color.red)
-                        .padding(.vertical, 5.0)
-                        .padding(.horizontal, 20.0)
-                }
-                
-                if vm.loginEmail == .invalid {
+                    if vm.verified == .invalid {
+                        
+                        Text("Password Not Correct")
+                            .foregroundColor(Color.red)
+                            .padding(.vertical, 5.0)
+                            .padding(.horizontal, 20.0)
+                    }
                     
-                    Text("Invalid Email")
-                        .foregroundColor(Color.red)
-                        .padding(.vertical, 5.0)
-                        .padding(.horizontal, 20.0)
-                }
-                
-                HStack {
-                    TextField("Email", text: self.$email)
-                        .padding(.vertical, 5.0)
-                        .padding(.horizontal, 20.0)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .onChange(of: self.email) {_ in
-                            
-                            vm.currentUser = nil
-                            vm.loginEmail = .notDefined
-                        }
-                }
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.purple, lineWidth: 1)
-                        .background(Color(red: 241/255, green: 243/255, blue: 248/255))
-                        .frame(height: 50)
-                )
-                .frame(width: 325, height: 50)
-                    
-                if vm.currentUser != nil {
-                    
-                    Spacer()
-                        .frame(height: 15)
-                    
+                    if vm.loginEmail == .invalid {
+                        
+                        Text("Invalid Email")
+                            .foregroundColor(Color.red)
+                            .padding(.vertical, 5.0)
+                            .padding(.horizontal, 20.0)
+                    }
                     
                     HStack {
-                        SecureField("Password", text: self.$password)
+                        TextField("Email", text: self.$email)
                             .padding(.vertical, 5.0)
                             .padding(.horizontal, 20.0)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
-                            .onChange(of: self.password) { _ in
-                                vm.verified = .notDefined
+                            .onChange(of: self.email) {_ in
+                                
+                                vm.currentUser = nil
+                                vm.loginEmail = .notDefined
                             }
                     }
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.purple, lineWidth: 1)
-                            .background(Color(red: 241/255, green: 243/255, blue: 248/255))
+                            .background(RoundedRectangle(cornerRadius: 8)
+                                            .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
                             .frame(height: 50)
                     )
-                    .frame(width: 325, height: 50)
-                    
-                }
-            }.background(Color(.white))
-            
-            Spacer()
-                .frame(height: 25)
-            
-            Button(action: {login()}) {
+                    .frame(width: metrics.size.width * 0.85, height: 50)
+                        
+                    if vm.currentUser != nil {
+                        
+                        Spacer()
+                            .frame(height: 15)
+                        
+                        
+                        HStack {
+                            SecureField("Password", text: self.$password)
+                                .padding(.vertical, 5.0)
+                                .padding(.horizontal, 20.0)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
+                                .onChange(of: self.password) { _ in
+                                    vm.verified = .notDefined
+                                }
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.purple, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                .frame(height: 50)
+                        )
+                        .frame(width: metrics.size.width * 0.85, height: 50)
+                        
+                    }
+                }.background(Color(.white))
                 
-                Text("\(vm.loginEmail != .valid ? "Next" : "Log In")")
-                    .fontWeight(.light)
-                    .foregroundColor(Color.white)
-            }.background(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.purple, lineWidth: 1)
-                    .background(Color(red: 154/255, green: 179/255, blue: 245/255))
-                    .frame(width: 325, height: 50)
-            )
-            .frame(width: 325, height: 45)
+                Spacer()
+                    .frame(height: 25)
+                
+                Button(action: {login()}) {
+                    
+                    Text("\(vm.loginEmail != .valid ? "Next" : "Log In")")
+                        .fontWeight(.light)
+                        .foregroundColor(Color.white)
+                        .frame(width: metrics.size.width * 0.85)
+                }.background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.purple, lineWidth: 1)
+                        .background(RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color(red: 154/255, green: 179/255, blue: 245/255)))
+                        .frame(width: metrics.size.width * 0.85, height: 50)
+                )
+                .frame(width: metrics.size.width, height: 45)
+            }
         }
+    }
+}
+
+func checkForLogin() -> Bool {
+    
+    if let filepath = Bundle.main.path(forResource: "LocalData", ofType: "txt") {
+        do {
+            let contents = try String(contentsOfFile: filepath)
+            
+            if contents.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 {
+                
+                DataView.sharedInstance.getUser(email: contents.trimmingCharacters(in: .whitespacesAndNewlines))
+                DataView.sharedInstance.loginEmail = .valid
+                DataView.sharedInstance.verified = .valid
+                
+                return true
+                
+            } else {
+                return false
+            }
+        } catch {
+            // contents could not be loaded
+            return false
+        }
+    } else {
+        // example.txt not found!
+        return false
     }
 }
 
@@ -260,70 +301,63 @@ struct LoginView: View {
     
     var body: some View {
         
-        VStack {
-            
-            Spacer()
-                .frame(height: 75)
-            
-            HStack {
+        GeometryReader { metrics in
+            VStack {
                 
                 Spacer()
-                Text("Log In")
-                    .font(.largeTitle)
-                    .fontWeight(.light)
-                    .foregroundColor(
-                        self.signInView ? Color.blue : Color.gray
-                    )
-                    .onTapGesture {
-                        self.signInView = true
-                    }
-                Spacer().frame(width: 15)
-                Text(" | ")
-                    .font(.largeTitle)
-                    .fontWeight(.light)
-                Spacer().frame(width: 15)
-                Text("Sign Up")
-                    .font(.largeTitle)
-                    .fontWeight(.light)
-                    .foregroundColor(
-                        self.signInView ? Color.gray : Color.blue
-                    )
-                    .onTapGesture {
-                        self.signInView = false
-                    }
-                Spacer()
-            }
-            
-            Spacer()
-            
-            if self.signInView {
-                SignInView()
-                    .onAppear() {
-                        vm.currentUser = nil
-                        vm.verified = .notDefined
-                        vm.loginEmail = .notDefined
-                        vm.passwordConfirmed = .notDefined
-                        vm.emailFreeToUse = .notDefined
-                    }
-                if vm.currentUser == nil {
+                    .frame(height: metrics.size.height * 0.15)
+                HStack {
+                    
                     Spacer()
-                        .frame(height: 250)
-                } else {
+                    Text("Log In")
+                        .font(.largeTitle)
+                        .fontWeight(.light)
+                        .foregroundColor(
+                            self.signInView ? Color.blue : Color.gray
+                        )
+                        .onTapGesture {
+                            self.signInView = true
+                        }
+                    Spacer().frame(width: 15)
+                    Text(" | ")
+                        .font(.largeTitle)
+                        .fontWeight(.light)
+                    Spacer().frame(width: 15)
+                    Text("Sign Up")
+                        .font(.largeTitle)
+                        .fontWeight(.light)
+                        .foregroundColor(
+                            self.signInView ? Color.gray : Color.blue
+                        )
+                        .onTapGesture {
+                            self.signInView = false
+                        }
                     Spacer()
-                        .frame(height: 185)
                 }
-            } else {
-                SignUpView()
-                    .onAppear() {
-                        vm.currentUser = nil
-                        vm.verified = .notDefined
-                        vm.loginEmail = .notDefined
-                        vm.passwordConfirmed = .notDefined
-                        vm.emailFreeToUse = .notDefined
-                    }
+                
                 Spacer()
-                    .frame(height: 120)
-            }
+                    .frame(height: metrics.size.height * 0.10)
+                
+                if self.signInView {
+                    SignInView()
+                        .onAppear() {
+                            vm.currentUser = nil
+                            vm.verified = .notDefined
+                            vm.loginEmail = .notDefined
+                            vm.passwordConfirmed = .notDefined
+                            vm.emailFreeToUse = .notDefined
+                        }
+                } else {
+                    SignUpView()
+                        .onAppear() {
+                            vm.currentUser = nil
+                            vm.verified = .notDefined
+                            vm.loginEmail = .notDefined
+                            vm.passwordConfirmed = .notDefined
+                            vm.emailFreeToUse = .notDefined
+                        }
+                }
+            }.frame(width: metrics.size.width, height: metrics.size.height)
         }
     }
 }

@@ -23,6 +23,7 @@
 		488B976725503A17008A2058 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 488B976625503A17008A2058 /* SwiftUICharts */; };
 		489196DF2553171700CEE741 /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489196DE2553171700CEE741 /* Pedometer.swift */; };
 		489F78652568196E0079D74D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 489F78642568196E0079D74D /* GoogleService-Info.plist */; };
+		48B3DD94257F0C3C00B0A6E7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3DD93257F0C3C00B0A6E7 /* AccountView.swift */; };
 		48EAAB9925538ADC005785FA /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAAB9825538ADC005785FA /* Notifications.swift */; };
 		48FA7F2725682D1A00610152 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7F2625682D1A00610152 /* LoginView.swift */; };
 		48FA7F562568389500610152 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7F552568389500610152 /* DataView.swift */; };
@@ -71,6 +72,7 @@
 		488B97602550389C008A2058 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		489196DE2553171700CEE741 /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
 		489F78642568196E0079D74D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		48B3DD93257F0C3C00B0A6E7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		48EAAB9825538ADC005785FA /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		48FA7F2625682D1A00610152 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		48FA7F552568389500610152 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				48FA7F2625682D1A00610152 /* LoginView.swift */,
 				48FA7F552568389500610152 /* DataView.swift */,
 				486FC769257B41C300C58355 /* CryptoView.swift */,
+				48B3DD93257F0C3C00B0A6E7 /* AccountView.swift */,
 			);
 			path = PaySteps;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B3DD94257F0C3C00B0A6E7 /* AccountView.swift in Sources */,
 				48EAAB9925538ADC005785FA /* Notifications.swift in Sources */,
 				48810372254B769500FF91E2 /* ActivityRing.swift in Sources */,
 				48FA7F562568389500610152 /* DataView.swift in Sources */,
