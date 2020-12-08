@@ -105,7 +105,8 @@ class DataView : ObservableObject {
                         "password": "hbox\(password)salty".sha256(),
                         "balance": 0,
                         "stepGoal": 0,
-                        "name": ""
+                        "name": "",
+                        "stepFlag": 0
                     ]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")

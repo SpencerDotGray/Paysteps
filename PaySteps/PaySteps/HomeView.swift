@@ -11,7 +11,6 @@ struct HomeView: View {
     
     @ObservedObject var vm: DataView = DataView.sharedInstance
     @State var stepCount: Int = 0
-    @State var stepFlag: Int = 0
     @State var stepGoal: Int = 10000
     @State var stepProgress: CGFloat = 0.0
     @State var stepProgressChange: CGFloat = 0.0
@@ -40,17 +39,18 @@ struct HomeView: View {
                                 .onReceive(pedoTimer) { _ in
                                     pedometer.update()
                                         self.stepCount = pedometer.getSteps()
-                                        self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
+                                        self.stepProgress = CGFloat(Double(self.stepCount) / Double(vm.currentUser!["stepGoal"] as! Double))
 
-                                        if self.stepCount > self.stepFlag {
+                                        if self.stepCount > vm.currentUser!["stepFlag"] as! Int {
                                 
                                             let notificationData = DataView.sharedInstance.getNotification()
                                             sendNotification(title: notificationData.title, subtitle: notificationData.description)
                                             DataView.sharedInstance.changeBalance(amount: 40)
-                                            self.stepFlag += 250
+                                            vm.changeValue(header: "stepFlag", value: vm.currentUser!["stepFlag"] as! Int + 250)
+                                            
                                         }
                                 }
-                            Text("\(vm.currentUser!["stepGoal"] as! Float) steps remaining")
+                            Text("\(vm.currentUser!["stepGoal"] as! Int) steps remaining")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                                 .multilineTextAlignment(.center)
