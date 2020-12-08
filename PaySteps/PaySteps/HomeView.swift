@@ -40,13 +40,17 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .onReceive(pedoTimer) { _ in
                                     pedometer.update()
-                                    self.stepCount = pedometer.getSteps()
-                                    self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
-                                    
-                                    if self.stepCount > self.stepFlag {
-                                        sendNotification(title: "Poggers")
-                                        self.stepFlag += 100
-                                    }
+                                        //self.stepCount = pedometer.getSteps()
+                                        self.stepCount = 300
+                                        self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
+
+                                        if self.stepCount > self.stepFlag {
+                                
+                                            let notificationData = DataView.sharedInstance.getNotification()
+                                            sendNotification(title: notificationData.title, subtitle: notificationData.description)
+                                            DataView.sharedInstance.changeBalance(amount: 40)
+                                            self.stepFlag += 250
+                                        }
                                 }
                             Text("\(self.stepGoal - self.stepCount) steps remaining")
                                 .font(.subheadline)
