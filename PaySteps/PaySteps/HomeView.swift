@@ -39,8 +39,7 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .onReceive(pedoTimer) { _ in
                                     pedometer.update()
-                                        //self.stepCount = pedometer.getSteps()
-                                        self.stepCount = 300
+                                        self.stepCount = pedometer.getSteps()
                                         self.stepProgress = CGFloat(Double(self.stepCount) / Double(self.stepGoal))
 
                                         if self.stepCount > self.stepFlag {
