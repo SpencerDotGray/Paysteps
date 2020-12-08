@@ -63,9 +63,10 @@ class Pedometer: ObservableObject {
             self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
                 guard let data = data, error == nil else { return }
                 
-                print(data.numberOfSteps.doubleValue)
-                self.hourSteps[i] = data.numberOfSteps.doubleValue
-                self.hourCal[i] = (self.w*0.57)/(63360/(self.h*0.42))*self.hourSteps[i]
+                OperationQueue.main.addOperation {
+                    Pedometer.sharedInstance.hourSteps[i] = data.numberOfSteps.doubleValue
+                    Pedometer.sharedInstance.hourCal[i] = (self.w*0.57)/(63360/(self.h*0.42))*data.numberOfSteps.doubleValue
+                }
             }
         }
 
@@ -86,7 +87,10 @@ class Pedometer: ObservableObject {
                     guard let data = data, error == nil else { return }
                     
                     let d = data.distance?.doubleValue ?? 0.0
-                    self.hourDist[i] = d
+                    
+                    OperationQueue.main.addOperation {
+                        Pedometer.sharedInstance.hourDist[i] = d
+                    }
                 }
             }
         }
