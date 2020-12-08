@@ -298,7 +298,7 @@ class DataView : ObservableObject {
     
     func getNotification() -> (title: String, description: String) {
         
-        let randIndex: Int = Int.random(in: 0..<self.activeNotifications.count)
+        let randIndex: Int = Int.random(in: 0..<self.activeNotifications.count-1)
         
         let temp: (title: String, description: String) = (self.activeNotifications[randIndex].title, self.activeNotifications[randIndex].description)
         

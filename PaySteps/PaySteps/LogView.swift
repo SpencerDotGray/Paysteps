@@ -51,10 +51,10 @@ struct DetailedView: View {
 
 struct LogView: View {
     
-    @State var stepsPerHour: [Double] = Pedometer.sharedInstance.getHourlySteps()
-    @State var distancePerHour: [Double] = Pedometer.sharedInstance.getHourlyDistance()
+    @State var stepsPerHour: [Double] = Pedometer.sharedInstance.hourSteps
+    @State var distancePerHour: [Double] = Pedometer.sharedInstance.hourDist
     @State var blankData: [Double] = [0.0, 1.0, 6.0, 2.0, 5.0, 1.0, 2.0, 6.0]
-    @State var pedometer: Pedometer = Pedometer.sharedInstance
+    @ObservedObject var pedometer: Pedometer = Pedometer.sharedInstance
     @State var displayGridView: Bool = true
     @State var inDetailedView: Bool = false
     
@@ -72,8 +72,8 @@ struct LogView: View {
                         VStack {
                             
                             HStack {
-                                NavigationLink(destination: DetailedView(title: "Steps", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Steps", lineData: pedometer.hourSteps, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: pedometer.hourSteps, title: "Steps", form: ChartForm.small, dropShadow: false)
                                 }
                                 NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
                                     LineChartView(data: blankData, title: "Calories", form: ChartForm.small, dropShadow: false)
@@ -81,8 +81,8 @@ struct LogView: View {
                             }
                             
                             HStack {
-                                NavigationLink(destination: DetailedView(title: "Distance", lineData: distancePerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: distancePerHour, title: "Distance", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Distance", lineData: pedometer.hourDist, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: pedometer.hourDist, title: "Distance", form: ChartForm.small, dropShadow: false)
                                 }
                                 NavigationLink(destination: DetailedView(title: "Crypto", lineData: blankData, inDetailedView: $inDetailedView)) {
                                     LineChartView(data: blankData, title: "Crypto", form: ChartForm.small, dropShadow: false)
@@ -134,10 +134,12 @@ struct LogView: View {
                 Spacer()
             }
             //}
+            
+            
         }.onAppear {
             
-            stepsPerHour = pedometer.getHourlySteps()
-            distancePerHour = pedometer.getHourlyDistance()
+            pedometer.getHourlySteps()
+            pedometer.getHourlyDistance()
         }
     }
 }

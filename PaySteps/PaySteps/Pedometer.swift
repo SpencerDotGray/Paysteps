@@ -8,13 +8,16 @@
 import Foundation
 import CoreMotion
 
-class Pedometer {
+class Pedometer: ObservableObject {
     
     private let pedometer: CMPedometer = CMPedometer()
     private var steps: Int?
     private var distance: Double?
     private var startDate: Date?
     private var inUpdate: Bool = false
+    
+    @Published var hourSteps: [Double] = [Double](repeating: 0.0, count: 24)
+    @Published var hourDist: [Double] = [Double](repeating: 0.0, count: 24)
     
     static let sharedInstance: Pedometer = {
         
@@ -46,11 +49,9 @@ class Pedometer {
         return distance ?? 0.0
     }
     
-    func getHourlySteps() -> [Double] {
-    
-        var list: [Double] = [Double](repeating: 0.0, count: 24)
+    func getHourlySteps() {
         
-        for i in 0..<list.count {
+        for i in 0..<hourSteps.count {
             
             let dateAtMidnight = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())
             let curHour: Date = Calendar.current.date(byAdding: .hour, value: i, to: dateAtMidnight)!
@@ -59,18 +60,17 @@ class Pedometer {
             self.pedometer.queryPedometerData(from: curHour, to: nextHour) { (data, error) in
                 guard let data = data, error == nil else { return }
                 
-                list[i] = data.numberOfSteps.doubleValue
+                print(data.numberOfSteps.doubleValue)
+                self.hourSteps[i] = data.numberOfSteps.doubleValue
             }
         }
 
-        return list
     }
     
-    func getHourlyDistance() -> [Double] {
+    func getHourlyDistance() {
     
-        var list: [Double] = [Double](repeating: 0.0, count: 24)
         
-        for i in 0..<list.count {
+        for i in 0..<hourDist.count {
             
             let dateAtMidnight = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!.startOfDay(for: Date())
             let curHour: Date = Calendar.current.date(byAdding: .hour, value: i, to: dateAtMidnight)!
@@ -82,12 +82,11 @@ class Pedometer {
                     guard let data = data, error == nil else { return }
                     
                     let d = data.distance?.doubleValue ?? 0.0
-                    list[i] = d
+                    self.hourDist[i] = d
                 }
             }
         }
     
-        return list
     }
     
     func update() {
