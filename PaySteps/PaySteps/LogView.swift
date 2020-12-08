@@ -38,14 +38,16 @@ struct DetailedView: View {
     
     var title: String
     var lineData: [Double]?
-    @Binding var inDetailedView: Bool
+    @Binding var goBack: Bool
     
     var body: some View {
         
         ZStack {
         
-            LineView(data: lineData ?? [0], title: self.title)
-        }.onAppear { self.inDetailedView = true }.onDisappear { self.inDetailedView = false }.padding(.horizontal, 10.0)
+            VStack {
+                LineView(data: lineData ?? [0], title: self.title)
+            }
+        }.padding(.horizontal, 10.0)
     }
 }
 
@@ -55,8 +57,10 @@ struct LogView: View {
     @State var distancePerHour: [Double] = Pedometer.sharedInstance.getHourlyDistance()
     @State var blankData: [Double] = [0.0, 1.0, 6.0, 2.0, 5.0, 1.0, 2.0, 6.0]
     @State var pedometer: Pedometer = Pedometer.sharedInstance
-    @State var displayGridView: Bool = true
+    @State var showDetailedView: Bool = false
     @State var inDetailedView: Bool = false
+    @State var detailedTitle: String = ""
+    @State var detailedData: [Double] = []
     
     var body: some View {
         
@@ -64,76 +68,24 @@ struct LogView: View {
             
             Color(red: 241/255, green: 243/255, blue: 248/255)
         
-            if displayGridView {
+            if showDetailedView {
+               
+                DetailedView(title: self.detailedTitle, lineData: self.detailedData, goBack: self.$showDetailedView)
+                
+            } else {
+                
                 NavigationView {
                     
-                    ZStack {
-                        Color(red: 241/255, green: 243/255, blue: 248/255)
-                        VStack {
-                            
-                            HStack {
-                                NavigationLink(destination: DetailedView(title: "Steps", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.small, dropShadow: false)
-                                }
-                                NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: blankData, title: "Calories", form: ChartForm.small, dropShadow: false)
-                                }
-                            }
-                            
-                            HStack {
-                                NavigationLink(destination: DetailedView(title: "Distance", lineData: distancePerHour, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: distancePerHour, title: "Distance", form: ChartForm.small, dropShadow: false)
-                                }
-                                NavigationLink(destination: DetailedView(title: "Crypto", lineData: blankData, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: blankData, title: "Crypto", form: ChartForm.small, dropShadow: false)
-                                }
-                            }
-                        }
-                    }
-                }.navigationBarHidden(true)
-            } else {
-                NavigationView {
-                
-                    ScrollView {
-                        NavigationLink(destination: DetailedView(title: "Steps", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
+                    LazyVStack {
+                        NavigationLink(destination: DetailedView(title: "Steps", lineData: blankData, goBack: self.$showDetailedView)) {
                             LineChartView(data: stepsPerHour, title: "Steps", form: ChartForm.large, dropShadow: false)
                         }
-                        NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
-                            LineChartView(data: blankData, title: "Calories", form: ChartForm.large, dropShadow: false)
-                        }
-                        NavigationLink(destination: DetailedView(title: "Distance", lineData: stepsPerHour, inDetailedView: $inDetailedView)) {
-                            LineChartView(data: stepsPerHour, title: "Distance", form: ChartForm.large, dropShadow: false)
-                        }
-                        NavigationLink(destination: DetailedView(title: "Crypto", lineData: blankData, inDetailedView: $inDetailedView)) {
-                            LineChartView(data: blankData, title: "Crypto", form: ChartForm.large, dropShadow: false)
+                        NavigationLink(destination: DetailedView(title: "Distance", lineData: blankData, goBack: self.$showDetailedView)) {
+                            LineChartView(data: blankData, title: "Distance", form: ChartForm.large, dropShadow: false)
                         }
                     }
-                }.navigationBarHidden(true).navigationBarTitle("")
+                }.navigationBarTitle("Logs")
             }
-            
-            //if !inDetailedView {
-                
-            VStack {
-                Spacer()
-                    .frame(height: 20)
-                ZStack {
-//                        HStack {
-//                            Spacer()
-//                            ButtonView(leftActive: $displayGridView)
-//                            Spacer()
-//                                .frame(width: 10)
-//                        }
-                    HStack {
-                        Spacer()
-                        Text("Logs")
-                            .font(.largeTitle)
-                            .fontWeight(.thin)
-                        Spacer()
-                    }
-                }
-                Spacer()
-            }
-            //}
         }.onAppear {
             
             stepsPerHour = pedometer.getHourlySteps()
