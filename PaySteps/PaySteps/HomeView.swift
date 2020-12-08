@@ -39,7 +39,7 @@ struct HomeView: View {
                                 .onReceive(pedoTimer) { _ in
                                     pedometer.update()
                                         self.stepCount = pedometer.getSteps()
-                                        self.stepProgress = CGFloat(Double(self.stepCount) / Double(vm.currentUser!["stepGoal"] as! Double))
+                                    self.stepProgress = CGFloat(Double(self.stepCount) / Double((vm.currentUser ?? ["stepGoal": 1])["stepGoal"] as! Double))
 
                                         if self.stepCount > vm.currentUser!["stepFlag"] as! Int {
                                 

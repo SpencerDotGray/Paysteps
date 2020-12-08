@@ -149,7 +149,9 @@ struct CryptoView: View {
                         }
                         Spacer()
                             .frame(width: 10)
-                    }.background(Rectangle().stroke(Color.gray, lineWidth: 1).background(self.light))
+                    }.background(Rectangle().stroke(Color.gray, lineWidth: 1).background(self.light)
+                                    .frame(width: metrics.size.width))
+                    .frame(width: metrics.size.width)
                     
                     
                     ScrollView {

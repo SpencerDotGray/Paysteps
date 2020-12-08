@@ -16,6 +16,7 @@ struct AccountView: View {
     @State var name: String = "temp"
     @State var email: String = "temp"
     @State var stepGoal: String = "temp"
+    @State var stepProgress: Float = 0.50
     
     var body: some View {
         
@@ -33,7 +34,7 @@ struct AccountView: View {
                             .fontWeight(.light)
                             .padding()
                         if vm.currentUser != nil {
-                            ProgressView(value: Float(pedometer.getSteps() / (vm.currentUser!["stepGoal"] as! Int)))
+                            ProgressView(value: self.stepProgress)
                                 .frame(width: metrics.size.width * 0.80)
                         } else {
                             ProgressView(value: 0.0)

@@ -104,7 +104,7 @@ class DataView : ObservableObject {
                         "email": email,
                         "password": "hbox\(password)salty".sha256(),
                         "balance": 0,
-                        "stepGoal": 0,
+                        "stepGoal": 100,
                         "name": "",
                         "stepFlag": 0
                     ]) { err in
