@@ -53,10 +53,11 @@ struct DetailedView: View {
 
 struct LogView: View {
     
-    @State var stepsPerHour: [Double] = Pedometer.sharedInstance.getHourlySteps()
-    @State var distancePerHour: [Double] = Pedometer.sharedInstance.getHourlyDistance()
+    @State var stepsPerHour: [Double] = Pedometer.sharedInstance.hourSteps
+    @State var distancePerHour: [Double] = Pedometer.sharedInstance.hourDist
+    @State var caloriesPerHour: [Double] = Pedometer.sharedInstance.hourCal
     @State var blankData: [Double] = [0.0, 1.0, 6.0, 2.0, 5.0, 1.0, 2.0, 6.0]
-    @State var pedometer: Pedometer = Pedometer.sharedInstance
+    @ObservedObject var pedometer: Pedometer = Pedometer.sharedInstance
     @State var showDetailedView: Bool = false
     @State var inDetailedView: Bool = false
     @State var detailedTitle: String = ""
@@ -68,10 +69,11 @@ struct LogView: View {
             
             Color(red: 241/255, green: 243/255, blue: 248/255)
         
+
             if showDetailedView {
                
                 DetailedView(title: self.detailedTitle, lineData: self.detailedData, goBack: self.$showDetailedView)
-                
+
             } else {
                 
                 NavigationView {
@@ -88,8 +90,8 @@ struct LogView: View {
             }
         }.onAppear {
             
-            stepsPerHour = pedometer.getHourlySteps()
-            distancePerHour = pedometer.getHourlyDistance()
+            pedometer.getHourlySteps()
+            pedometer.getHourlyDistance()
         }
     }
 }
