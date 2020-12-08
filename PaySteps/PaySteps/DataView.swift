@@ -103,7 +103,9 @@ class DataView : ObservableObject {
                     ref = self.db!.collection("users").addDocument(data: [
                         "email": email,
                         "password": "hbox\(password)salty".sha256(),
-                        "balance": 0
+                        "balance": 0,
+                        "stepGoal": 0,
+                        "name": ""
                     ]) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
@@ -335,5 +337,15 @@ class DataView : ObservableObject {
                 }
         }
 
+    }
+    
+    func changeValue<T>(header: String, value: T) {
+        
+        if currentUser != nil {
+            
+            db!.collection("users").document("\(self.currentUserUID)").setData([ "\(header)": value ], merge: true)
+            
+            self.currentUser!["\(header)"] = value
+        }
     }
 }

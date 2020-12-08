@@ -30,7 +30,8 @@ struct ContentView: View {
                 TabView(selection: self.$sel) {
                     LogView().tabItem { Image(systemName: "chart.bar.xaxis"); Text("Logs") }.tag(2)
                     HomeView().tabItem { Image(systemName: "house.fill"); Text("Home") }.tag(1)
-                    CryptoView().tabItem { Image(systemName: "bitcoinsign.square.fill"); Text("Crypto") }.tag(3)
+                    CryptoView().tabItem { Image(systemName: "bag.fill"); Text("Promotions") }.tag(3)
+                    AccountView().tabItem { Image(systemName: "person.crop.circle.fill"); Text("Account") }.tag(4)
                 }.onAppear {
                     UITabBar.appearance().backgroundColor = UIColor(self.dark)
                 }
