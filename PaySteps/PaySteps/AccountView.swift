@@ -145,6 +145,7 @@ struct AccountView: View {
                 self.name = "\(vm.currentUser!["name"] ?? "")"
                 self.email = "\(vm.currentUser!["email"] ?? "")"
                 self.stepGoal = "\(vm.currentUser!["stepGoal"] ?? "")"
+                self.stepProgress = Float(pedometer.getSteps() / Int(self.stepGoal)!)
             }
         }
     }

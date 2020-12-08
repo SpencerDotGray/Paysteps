@@ -38,17 +38,20 @@ struct HomeView: View {
                                 .multilineTextAlignment(.center)
                                 .onReceive(pedoTimer) { _ in
                                     pedometer.update()
-                                        self.stepCount = pedometer.getSteps()
-                                    self.stepProgress = CGFloat(Double(self.stepCount) / Double((vm.currentUser ?? ["stepGoal": 1])["stepGoal"] as! Double))
+                                    self.stepCount = pedometer.getSteps()
+                                    if vm.currentUser != nil {
+                                        self.stepProgress = CGFloat (Double(self.stepCount) / (vm.currentUser!["stepGoal"] as! Double))
+                                    }
+                                    self.stepProgress = CGFloat(Double(self.stepCount) / Double((vm.currentUser ?? ["stepGoal": 1.0])["stepGoal"] as! Double))
 
-                                        if self.stepCount > vm.currentUser!["stepFlag"] as! Int {
-                                
-                                            let notificationData = DataView.sharedInstance.getNotification()
-                                            sendNotification(title: notificationData.title, subtitle: notificationData.description)
-                                            DataView.sharedInstance.changeBalance(amount: 40)
-                                            vm.changeValue(header: "stepFlag", value: vm.currentUser!["stepFlag"] as! Int + 250)
-                                            
-                                        }
+                                    if self.stepCount > vm.currentUser!["stepFlag"] as! Int {
+                            
+                                        let notificationData = DataView.sharedInstance.getNotification()
+                                        sendNotification(title: notificationData.title, subtitle: notificationData.description)
+                                        DataView.sharedInstance.changeBalance(amount: 40)
+                                        vm.changeValue(header: "stepFlag", value: vm.currentUser!["stepFlag"] as! Int + 250)
+                                        
+                                    }
                                 }
                             Text("\((vm.currentUser ?? ["stepGoal": 0])["stepGoal"] as! Int ) steps remaining")
                                 .font(.subheadline)
