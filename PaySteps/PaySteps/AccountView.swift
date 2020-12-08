@@ -33,13 +33,8 @@ struct AccountView: View {
                             .font(.largeTitle)
                             .fontWeight(.light)
                             .padding()
-                        if vm.currentUser != nil {
-                            ProgressView(value: self.stepProgress)
-                                .frame(width: metrics.size.width * 0.80)
-                        } else {
-                            ProgressView(value: 0.0)
-                                .frame(width: metrics.size.width * 0.80)
-                        }
+                        ProgressView(value: self.stepProgress)
+                            .frame(width: metrics.size.width * 0.80)
                     }
                     
                     Spacer()
@@ -53,7 +48,9 @@ struct AccountView: View {
                             if !inEdit && vm.currentUser != nil {
                                 vm.changeValue(header: "name", value: self.name)
                                 vm.changeValue(header: "email", value: self.email)
-                                vm.changeValue(header: "stepGoal", value: Int(self.stepGoal))
+                                if let sg = Int(self.stepGoal) {
+                                    vm.changeValue(header: "stepGoal", value: sg)
+                                }
                             }
                         }) {
                             Image(systemName: "pencil")
@@ -145,7 +142,10 @@ struct AccountView: View {
                 self.name = "\(vm.currentUser!["name"] ?? "")"
                 self.email = "\(vm.currentUser!["email"] ?? "")"
                 self.stepGoal = "\(vm.currentUser!["stepGoal"] ?? "")"
-                self.stepProgress = Float(pedometer.getSteps() / Int(self.stepGoal)!)
+                if let stepGoal = vm.currentUser!["stepGoal"] as? Int {
+                    
+                    self.stepProgress = Float(pedometer.getSteps() / stepGoal)
+                }
             }
         }
     }
