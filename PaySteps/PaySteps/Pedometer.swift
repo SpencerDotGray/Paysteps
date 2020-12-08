@@ -15,9 +15,12 @@ class Pedometer: ObservableObject {
     private var distance: Double?
     private var startDate: Date?
     private var inUpdate: Bool = false
+    private var w: Double = 195.0
+    private var h: Double = 70.75
     
     @Published var hourSteps: [Double] = [Double](repeating: 0.0, count: 24)
     @Published var hourDist: [Double] = [Double](repeating: 0.0, count: 24)
+    @Published var hourCal: [Double] = [Double](repeating: 0.0, count: 24)
     
     static let sharedInstance: Pedometer = {
         
@@ -62,6 +65,7 @@ class Pedometer: ObservableObject {
                 
                 print(data.numberOfSteps.doubleValue)
                 self.hourSteps[i] = data.numberOfSteps.doubleValue
+                self.hourCal[i] = (self.w*0.57)/(63360/(self.h*0.42))*self.hourSteps[i]
             }
         }
 

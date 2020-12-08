@@ -53,6 +53,7 @@ struct LogView: View {
     
     @State var stepsPerHour: [Double] = Pedometer.sharedInstance.hourSteps
     @State var distancePerHour: [Double] = Pedometer.sharedInstance.hourDist
+    @State var caloriesPerHour: [Double] = Pedometer.sharedInstance.hourCal
     @State var blankData: [Double] = [0.0, 1.0, 6.0, 2.0, 5.0, 1.0, 2.0, 6.0]
     @ObservedObject var pedometer: Pedometer = Pedometer.sharedInstance
     @State var displayGridView: Bool = true
@@ -75,8 +76,8 @@ struct LogView: View {
                                 NavigationLink(destination: DetailedView(title: "Steps", lineData: pedometer.hourSteps, inDetailedView: $inDetailedView)) {
                                     LineChartView(data: pedometer.hourSteps, title: "Steps", form: ChartForm.small, dropShadow: false)
                                 }
-                                NavigationLink(destination: DetailedView(title: "Calories", lineData: blankData, inDetailedView: $inDetailedView)) {
-                                    LineChartView(data: blankData, title: "Calories", form: ChartForm.small, dropShadow: false)
+                                NavigationLink(destination: DetailedView(title: "Calories", lineData: pedometer.hourCal, inDetailedView: $inDetailedView)) {
+                                    LineChartView(data: pedometer.hourCal, title: "Calories", form: ChartForm.small, dropShadow: false)
                                 }
                             }
                             
