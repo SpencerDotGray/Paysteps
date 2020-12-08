@@ -78,7 +78,7 @@ struct SignUpView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.purple, lineWidth: 1)
                                 .background(RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                                .fill(Color.white))
                                 .frame(height: 50)
                         )
                         .frame(width: metrics.size.width * 0.85, height: 50)
@@ -100,7 +100,7 @@ struct SignUpView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.purple, lineWidth: 1)
                                 .background(RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                                .fill(Color.white))
                                 .frame(height: 50)
                         )
                         .frame(width: metrics.size.width * 0.85, height: 50)
@@ -122,13 +122,13 @@ struct SignUpView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.purple, lineWidth: 1)
                                 .background(RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                                .fill(Color.white))
                                 .frame(height: 50)
                         )
                         .frame(width: metrics.size.width * 0.85, height: 50)
                     }
                     
-                }.background(Color(.white))
+                }.background(Color(red: 241/255, green: 243/255, blue: 248/255))
                 
                 Spacer()
                     .frame(height: 25)
@@ -148,7 +148,7 @@ struct SignUpView: View {
                 )
                 .frame(width: metrics.size.width, height: 45)
             }
-        }
+        }.background(Color(red: 241/255, green: 243/255, blue: 248/255))
     }
 }
 
@@ -212,7 +212,7 @@ struct SignInView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.purple, lineWidth: 1)
                             .background(RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                            .fill(Color.white))
                             .frame(height: 50)
                     )
                     .frame(width: metrics.size.width * 0.85, height: 50)
@@ -237,13 +237,13 @@ struct SignInView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.purple, lineWidth: 1)
                                 .background(RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color(red: 241/255, green: 243/255, blue: 248/255)))
+                                                .fill(Color.white))
                                 .frame(height: 50)
                         )
                         .frame(width: metrics.size.width * 0.85, height: 50)
                         
                     }
-                }.background(Color(.white))
+                }.background(Color(red: 241/255, green: 243/255, blue: 248/255))
                 
                 Spacer()
                     .frame(height: 25)
@@ -263,7 +263,7 @@ struct SignInView: View {
                 )
                 .frame(width: metrics.size.width, height: 45)
             }
-        }
+        }.background(Color(red: 241/255, green: 243/255, blue: 248/255))
     }
 }
 
@@ -358,6 +358,7 @@ struct LoginView: View {
                         }
                 }
             }.frame(width: metrics.size.width, height: metrics.size.height)
+            .background(Color(red: 241/255, green: 243/255, blue: 248/255))
         }
     }
 }
